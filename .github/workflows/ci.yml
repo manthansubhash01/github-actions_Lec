@@ -22,3 +22,21 @@ jobs :
       - name : Run test
         run : npm run lint
         
+  run-build : 
+    runs-on : ubuntu-latest
+
+    steps : 
+      - name : Checkout Code
+        uses : actions/checkout@v4
+
+      - name : Use Noide.jobs
+        uses : actions/setup-node@v4
+
+        with : 
+            node-version : 18
+      
+      - name : Install Dependencies
+        run : npm install
+      
+      - name : Run Build
+        run : npm run build
